@@ -1,16 +1,18 @@
+import { featuresStyles } from "../styles/features";
+
 export function Features() {
   return (
-    <ul className="text-sm text-slate-600 space-y-2 text-center">
-      <li className="flex justify-center items-center gap-2">
-        <span className="text-teal-400 text-lg">✔</span>
+    <ul className={featuresStyles.list()}>
+      <li className={featuresStyles.item()}>
+        <span className={featuresStyles.checkmark()}>✔</span>
         Unlimited websites
       </li>
-      <li className="flex justify-center items-center gap-2">
-        <span className="text-teal-400  text-lg">✔</span>
+      <li className={featuresStyles.item()}>
+        <span className={featuresStyles.checkmark()}>✔</span>
         100% data ownership
       </li>
-      <li className="flex justify-center items-center gap-2">
-        <span className="text-teal-400 text-lg">✔</span>
+      <li className={featuresStyles.item()}>
+        <span className={featuresStyles.checkmark()}>✔</span>
         Email reports
       </li>
     </ul>

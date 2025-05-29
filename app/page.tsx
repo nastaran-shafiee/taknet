@@ -5,6 +5,7 @@ import { PricingSlider } from "./components/PricingSlider";
 import { BillingToggle } from "./components/BillingToggle";
 import { Features } from "./components/Features";
 import { pricingLevels } from "./types";
+import { homeStyles } from "./styles/home";
 
 export default function Home() {
   const [level, setLevel] = useState<number>(2); // index in pricingLevels
@@ -14,8 +15,8 @@ export default function Home() {
   const finalPrice = isYearly ? current.price * 0.75 : current.price;
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-100 p-4">
-      <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md w-full h-[680px] flex flex-col justify-between">
+    <main className={homeStyles.main()}>
+      <div className={homeStyles.card()}>
         <div>
           <PricingSlider
             level={level}
@@ -24,10 +25,10 @@ export default function Home() {
           />
 
           <div className="flex items-center justify-center my-12">
-            <span className="text-4xl font-bold text-slate-800">
+            <span className={homeStyles.price()}>
               ${finalPrice.toFixed(2)}
             </span>
-            <span className="text-slate-500 ml-2">/month</span>
+            <span className={homeStyles.priceLabel()}>/month</span>
           </div>
 
           <BillingToggle isYearly={isYearly} setIsYearly={setIsYearly} />
@@ -37,7 +38,7 @@ export default function Home() {
         <Features />
 
         <div className="flex justify-center items-center mb-10">
-          <button className="w-full max-w-[200px] bg-slate-800 text-white py-3 rounded-full hover:bg-slate-900 transition cursor-pointer">
+          <button className={homeStyles.button()}>
             Start my trial
           </button>
         </div>

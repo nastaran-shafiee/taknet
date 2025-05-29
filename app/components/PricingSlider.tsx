@@ -1,4 +1,5 @@
 import { PricingLevel } from "../types";
+import { pricingSliderStyles } from "../styles/pricing-slider";
 
 interface PricingSliderProps {
   level: number;
@@ -8,8 +9,8 @@ interface PricingSliderProps {
 
 export function PricingSlider({ level, setLevel, pricingLevels }: PricingSliderProps) {
   return (
-    <div className="text-center">
-      <p className="uppercase tracking-widest text-sm text-slate-500 mb-6">
+    <div className={pricingSliderStyles.container()}>
+      <p className={pricingSliderStyles.views()}>
         {pricingLevels[level].views} PAGEVIEWS
       </p>
       <input
@@ -25,7 +26,7 @@ export function PricingSlider({ level, setLevel, pricingLevels }: PricingSliderP
             (level / (pricingLevels.length - 1)) * 100
           }%, #f8fafc 100%)`,
         }}
-        className="w-full h-2 rounded-lg appearance-none slider-thumb mt-4"
+        className={pricingSliderStyles.slider()}
       />
     </div>
   );
